@@ -12,7 +12,10 @@
 <body>
   <div class=container>
     <div class=button-row-container>
-      <button id="button-timer" onclick=onTimerPress() type="button">Start</button>
+      <div class=button-column-container>
+        <button id="button-timer" onclick=onTimerPress() type="button">Start</button>
+        <button id="button-timer-visibility" onclick=onVisibilityPress() type="button">Show</button>
+      </div>
       <div id="timer">00:00:00</div>
       <button id="button-refresh" onclick=onResetPress() type="button">Reset</button>
     </div>

@@ -8,6 +8,7 @@ const initialiseWidget = (defaultData) => {
     timerStarted: false,
     startTime: null,
     timerId: null,
+    visibility: "visible",
   };
   // Initialise localstorage variables
   if (localStorage.getItem("widgetData") === null) {
@@ -25,14 +26,18 @@ const initialiseWidget = (defaultData) => {
 
   // Initialise the timer
   const timer = window.document.getElementById("timer");
+  const buttonTimerVisibility = window.document.getElementById("button-timer-visibility")
   if (widgetData.timerStarted === true) {
     timer.style.visibility = "visible";
+    buttonTimerVisibility.innerHTML = "hide";
     timer.innerHTML = calculateTime();
     const buttonStartTimer = window.document.getElementById("button-timer");
     buttonStartTimer.innerHTML = "stop";
     _setTimerId();
   } else {
     const buttonStartTimer = window.document.getElementById("button-timer");
+    buttonTimerVisibility.innerHTML = "show";
+    timer.style.visibility = "hidden";
     buttonStartTimer.innerHTML = "start";
   }
 
@@ -155,6 +160,22 @@ const onTimerPress = () => {
     timer.style.visibility = "visible";
     startTimer();
   }
+};
+
+const onVisibilityPress = () => {
+  const timer = document.getElementById("timer");
+  const buttonHideTimer = document.getElementById("button-timer-visibility");
+
+  if (timer.style.visibility === "hidden") {
+    widgetData.visibility = "visible";
+    timer.style.visibility = "visible";
+    buttonHideTimer.innerHTML = "hide";
+  } else {
+    widgetData.visibility = "hidden";
+    timer.style.visibility = "hidden";
+    buttonHideTimer.innerHTML = "show";
+  }
+  localStorage.setItem("widgetData", JSON.stringify(widgetData));
 };
 
 // Initialise the widget on load
