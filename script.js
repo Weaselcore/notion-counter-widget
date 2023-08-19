@@ -18,7 +18,9 @@ const initialiseWidget = (defaultData) => {
     console.log("LocalStorage variables already initialised");
   }
   // Initialise widget data from localstorage
-  widgetData = JSON.parse(localStorage.getItem("widgetData"));
+  let widgetDataFromStorage = JSON.parse(localStorage.getItem("widgetData"));
+  // Merge default data with data from localstorage for future updates
+  widgetData = {defaultData, ...widgetDataFromStorage};
 
   // Initialise the count number
   const number = window.document.getElementById("number");
