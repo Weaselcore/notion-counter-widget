@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Counter Widget</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer/></script>
+</head>
+
+<body>
+  <div class=container>
+    <div class=button-row-container>
+      <button id="button-timer" onclick=onTimerPress() type="button">Start</button>
+      <div id="timer">00:00:00</div>
+      <button id="button-refresh" onclick=onResetPress() type="button">Reset</button>
+    </div>
+    <div class=counter-container>
+      <button id="button-minus" onclick=onMinusPress() type="button">-</button>
+      <div id="number">0</div>
+      <button id="button-plus" onclick=onPlusPress() type="button">+</button>
+    </div>
+  </div>
+</body>
+
+</html>
