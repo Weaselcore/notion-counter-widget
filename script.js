@@ -20,7 +20,7 @@ const initialiseWidget = (defaultData) => {
   // Initialise widget data from localstorage
   let widgetDataFromStorage = JSON.parse(localStorage.getItem("widgetData"));
   // Merge default data with data from localstorage for future updates
-  widgetData = {defaultData, ...widgetDataFromStorage};
+  widgetData = {...defaultData, ...widgetDataFromStorage};
 
   // Initialise the count number
   const number = window.document.getElementById("number");
