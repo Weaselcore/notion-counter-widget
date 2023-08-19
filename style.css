@@ -109,7 +109,7 @@ body {
 #button-minus:hover,
 #button-refresh:hover,
 #button-timer:hover,
-button-timer-visibility:hover {
+#button-timer-visibility:hover {
   background-color: #47584196;
   border-color: #475841;
   transform: translateY(-2px);
